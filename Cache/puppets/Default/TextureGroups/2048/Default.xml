@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureGroup>
+  <texture scale="0">Default_0.png</texture>
+  <tpe x="2" y="2" tpage="Default_0" entry="3">spr_head_spr_head_0.tpe</tpe>
+  <tpe x="242" y="2" tpage="Default_0" entry="13">spr_head_spr_head_2.tpe</tpe>
+  <tpe x="2" y="270" tpage="Default_0" entry="10">spr_head_spr_head_1.tpe</tpe>
+  <tpe x="202" y="270" tpage="Default_0" entry="8">spr_body_spr_body_1.tpe</tpe>
+  <tpe x="202" y="438" tpage="Default_0" entry="12">spr_body_spr_body_3.tpe</tpe>
+  <tpe x="2" y="562" tpage="Default_0" entry="11">spr_body_spr_body_2.tpe</tpe>
+  <tpe x="234" y="562" tpage="Default_0" entry="1">spr_body_spr_body_0.tpe</tpe>
+  <tpe x="2" y="538" tpage="Default_0" entry="5">spr_talking_mouth_spr_talking_mouth_2.tpe</tpe>
+  <tpe x="2" y="538" tpage="Default_0" entry="9">spr_mouth_spr_mouth_3.tpe</tpe>
+  <tpe x="442" y="270" tpage="Default_0" entry="0">spr_talking_mouth_spr_talking_mouth_0.tpe</tpe>
+  <tpe x="442" y="270" tpage="Default_0" entry="2">spr_mouth_spr_mouth_0.tpe</tpe>
+  <tpe x="50" y="538" tpage="Default_0" entry="6">spr_mouth_spr_mouth_1.tpe</tpe>
+  <tpe x="442" y="290" tpage="Default_0" entry="4">spr_talking_mouth_spr_talking_mouth_1.tpe</tpe>
+  <tpe x="442" y="290" tpage="Default_0" entry="7">spr_mouth_spr_mouth_2.tpe</tpe>
+</TextureGroup>
