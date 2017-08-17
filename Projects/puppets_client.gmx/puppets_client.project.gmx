@@ -8,6 +8,7 @@
   <sprites name="sprites">
     <sprite>sprites\spr_textbox</sprite>
     <sprite>sprites\spr_btn_register</sprite>
+    <sprite>sprites\spr_btn_login</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_register</background>
@@ -22,17 +23,25 @@
     <object>objects\obj_controller</object>
     <objects name="menus">
       <objects name="registration">
-        <object>objects\obj_textbox_username</object>
-        <object>objects\obj_textbox_password1</object>
         <object>objects\obj_textbox_password2</object>
-        <object>objects\obj_textbox_parent</object>
         <object>objects\obj_button_register</object>
+      </objects>
+      <objects name="common">
+        <object>objects\obj_textbox_parent</object>
+        <object>objects\obj_textbox_password1</object>
+        <object>objects\obj_textbox_username</object>
+      </objects>
+      <objects name="login">
+        <object>objects\obj_button_login</object>
       </objects>
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_boot</room>
     <room>rooms\rm_register</room>
+    <room>rooms\rm_login</room>
     <room>rooms\rm_gameWorld</room>
+    <room>rooms\rm_loginRegisterSelect</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

@@ -28,7 +28,7 @@
             <string>/// initiallize variables
 
 socket = network_create_socket(network_socket_tcp);
-ip = "10.10.48.49";
+ip = "10.0.0.233";
 isConnected = network_connect(socket, ip, 50000);
 global.buffer = buffer_create(1024, buffer_fixed, 1);
 latency = 0;
