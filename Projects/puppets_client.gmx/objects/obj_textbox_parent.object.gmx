@@ -25,9 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// initiallize parent
-
-max_width = 300;
+            <string>max_width = 300;
 selected = false;
 blink = false;
 txt = "";
@@ -56,11 +54,9 @@ x = room_width/2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// blink alarm
+            <string>blink = !blink
 
-blink = !blink;
 alarm[0] = 30;
-
 </string>
           </argument>
         </arguments>
@@ -83,10 +79,9 @@ alarm[0] = 30;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font(-1);
+            <string>draw_set_font(fnt_main);
 draw_set_colour(make_colour_rgb(183, 224, 31));
 draw_sprite(sprite_index, image_index, x, y);
-
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 </string>
@@ -116,7 +111,9 @@ draw_set_valign(fa_middle);
     if (string_width(keyboard_string) &lt; max_width)
     {
         txt = keyboard_string;
-    } else {
+    }
+    else
+    {
         keyboard_string = txt;
     }
 }

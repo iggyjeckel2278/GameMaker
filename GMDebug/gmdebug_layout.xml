@@ -3,12 +3,12 @@
   <Left>
     <Panel Type="eNone">
       <Window Type="Source">
-        <Tabs sel="gml_Object_obj_white_KeyPress_40" />
+        <Tabs sel="gml_Script_scr_handleIncomingPackets" />
       </Window>
     </Panel>
   </Left>
   <Right>
-    <Panel Type="eHorizontal" Width="430" Height="485" Distance="242">
+    <Panel Type="eHorizontal" Width="430" Height="485" Distance="241">
       <Left>
         <Panel Type="eNone">
           <Window Type="Globals" />

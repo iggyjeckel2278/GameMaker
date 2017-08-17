@@ -25,15 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// initiallize variables
-
-socket = network_create_socket(network_socket_tcp);
-ip = "10.0.0.233";
+            <string>socket = network_create_socket(network_socket_tcp);
+ip = "127.0.0.1";
 isConnected = network_connect(socket, ip, 50000);
 global.buffer = buffer_create(1024, buffer_fixed, 1);
 latency = 0;
 
-scr_showNotification("Client Initialized!");
+scr_showNotification("Client initialized!");
 </string>
           </argument>
         </arguments>
@@ -56,8 +54,7 @@ scr_showNotification("Client Initialized!");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// update latency
-
+            <string>//update latency
 buffer_seek(global.buffer, buffer_seek_start, 0);
 buffer_write(global.buffer, buffer_u8, 1);
 buffer_write(global.buffer, buffer_u32, current_time);
@@ -84,15 +81,13 @@ network_send_packet(socket, global.buffer, buffer_tell(global.buffer));
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// async network stuff( connect, disconnect, data )
-var eventType = ds_map_find_value(async_load, "type");
+            <string>var eventType = ds_map_find_value(async_load, "type");
 switch(eventType)
 {
-    case network_type_data:
-        var buffer = ds_map_find_value(async_load, "buffer");
-        buffer_seek(buffer, buffer_seek_start, 0);
-        scr_handleIncomingPackets(buffer);   
-    
+    case network_type_data://when we receive data from a server
+        var buffer = ds_map_find_value(async_load, "buffer");//ceate a read buffer and store incoming information in it
+        buffer_seek(buffer, buffer_seek_start, 0);//seek to the beginning of the newly created read buffer
+        scr_handleIncomingPackets(buffer)//pass this buffer to our helpful script;
     break;
 }
 </string>
@@ -117,9 +112,7 @@ switch(eventType)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// kill all at game end
-
-network_destroy(socket);
+            <string>network_destroy(socket);
 buffer_delete(global.buffer);
 </string>
           </argument>
@@ -143,8 +136,11 @@ buffer_delete(global.buffer);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_color(c_white);
-draw_text(5,5, "Latency: " + string(latency));
+            <string>draw_set_valign(fa_middle);
+draw_set_halign(fa_left);
+draw_set_font(fnt_main);
+draw_set_colour(c_white);
+draw_text(5, 15, "Latency: " + string(latency));
 </string>
           </argument>
         </arguments>

@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureGroup>
-  <texture scale="0">Default_0.png</texture>
-  <tpe x="4" y="4" tpage="Default_0" entry="2">bg_register_bg_register.tpe</tpe>
-  <tpe x="2" y="266" tpage="Default_0" entry="1">spr_btn_register_spr_btn_register_0.tpe</tpe>
-  <tpe x="2" y="338" tpage="Default_0" entry="0">spr_textbox_spr_textbox_0.tpe</tpe>
-</TextureGroup>

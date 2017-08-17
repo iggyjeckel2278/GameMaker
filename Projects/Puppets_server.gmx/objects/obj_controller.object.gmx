@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,22 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// initiallize the server
-var networkType = network_socket_tcp;
+            <string>var networkType = network_socket_tcp;
 var port = 50000;
-var maxPlayers = 5;
+var maxPlayers = 32;
 var bufferSize = 1024;
-var bufferType = buffer_fixed; // may want buffer_grow
+var bufferType = buffer_fixed;
 var bufferAlignment = 1;
-
-// create server
 
 server = network_create_server(networkType, port, maxPlayers);
 global.buffer = buffer_create(bufferSize, bufferType, bufferAlignment);
 
 sockets = ds_list_create();
 
-scr_showNotifaction("Server is up");
+//just for display purposes ^^
+scr_showNotification("Server is up!");
 </string>
           </argument>
         </arguments>
@@ -63,35 +61,35 @@ scr_showNotifaction("Server is up");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// async network stuff( connect, disconnect, data )
-var eventType = ds_map_find_value(async_load, "type");
+            <string>var eventType = ds_map_find_value(async_load, "type");
 switch(eventType)
 {
-    case network_type_connect: // when a player connects
+    case network_type_connect://when a player connects
         var socket = ds_map_find_value(async_load, "socket");
         ds_list_add(sockets, socket);
         
-        scr_showNotifaction("A new player has connected");
+        //just for display purposes ^^
+        scr_showNotification("A new player has connected!");
     break;
     
-    case network_type_disconnect: // when a player disconnects
-         var socket = ds_map_find_value(async_load, "socket");
-         var findSocket = ds_list_find_index(sockets, socket); // find the index of the socket to delete
-         
-         if (findSocket &gt;= 0)
-         {
-            ds_list_delete(sockets, findSocket);   
-         }
-
-        scr_showNotifaction("A player has left");
+    case network_type_disconnect://when a player disconnects
+        var socket = ds_map_find_value(async_load, "socket");
+        var findSocket = ds_list_find_index(sockets, socket);//find the index of the socket to delete
+        
+        if (findSocket &gt;= 0)
+        {
+            ds_list_delete(sockets, findSocket);
+        }
+        
+        //just for display purposes ^^
+        scr_showNotification("A player has left!");
     break;
     
-    case network_type_data: // when we receive data from a client
-        var buffer = ds_map_find_value(async_load, "buffer"); // create a read buffer and store incoming information in it
-        var socket = ds_map_find_value(async_load, "id");// grab the socket of the player sending the data
-        buffer_seek(buffer, buffer_seek_start, 0); // seek to the beggining of the newly created read buffer
-        scr_handleIncomingPackets(buffer, socket); // pass this buffer and the player's socket to our script
-    
+    case network_type_data://when we receive data from a client
+        var buffer = ds_map_find_value(async_load, "buffer");//ceate a read buffer and store incoming information in it
+        var socket = ds_map_find_value(async_load, "id");//grab the socket of the player sending the data
+        buffer_seek(buffer, buffer_seek_start, 0);//seek to the beginning of the newly created read buffer
+        scr_handleIncomingPackets(buffer, socket);//pass this buffer and the player's socket to our helpful script;
     break;
 }
 </string>
@@ -116,8 +114,7 @@ switch(eventType)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// kill all at end
-
+            <string>//destroy serve, write buffer and all sockets
 network_destroy(server);
 buffer_delete(global.buffer);
 ds_list_destroy(sockets);
@@ -143,9 +140,9 @@ ds_list_destroy(sockets);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_color(c_white);
-draw_text(5,5, "Server status: " + string(server &gt; 0));
-draw_text(5,20, "Total clients: " + string(ds_list_size(sockets)));
+            <string>draw_set_colour(c_white);
+draw_text(5, 5, "Server status: " + string(server &gt;= 0));
+draw_text(5, 20, "Total clients: " + string(ds_list_size(sockets)));
 </string>
           </argument>
         </arguments>

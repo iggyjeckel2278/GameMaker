@@ -106,12 +106,16 @@
             <string>event_inherited();
 if (txt == "")
 {
-    draw_text(x,y,"Enter Username");
-} else {
+    draw_text(x, y, "Enter Username");
+}
+else
+{
     if (!blink || !selected)
     {
         draw_text(x, y, txt);
-    } else {
+    }
+    else
+    {
         draw_text(x, y, txt + '|');
     }
 }
