@@ -33,30 +33,11 @@ vspeed *= 0.8;
 hspeed += 1 * (keyboard_check(vk_right)-keyboard_check(vk_left));
 //vspeed += 1 * (keyboard_check(vk_down)-keyboard_check(vk_up));
 vspeed = 0;
-if x &lt; 15 {
-    x = 15;
-    if hspeed &lt; 0 {
-        hspeed *= -0.5;
-    }
-}
-if x &gt; room_width {
-    x = room_width;
-    if hspeed &gt; 0 {
-        hspeed *= -0.5;
-    }
-}
-if y &lt; 15 {
-    y = 15;
-    if vspeed &lt; 0 {
-        vspeed *= -0.5;
-    }
-}
-if y &gt; room_height - 15 {
-    y = room_height - 15;
-    if vspeed &gt; 0 {
-        vspeed *= -0.5;
-    }
-}
+
+if (x &lt; 0) {x += room_width;}
+if (x &gt; room_width) {x -= room_width;}
+
+
 
 //update coordinates
 buffer_seek(global.buffer, buffer_seek_start, 0);

@@ -11,6 +11,11 @@
     <sprite>sprites\spr_btn_login</sprite>
     <sprite>sprites\spr_btn_join</sprite>
     <sprite>sprites\spr_btn_exit</sprite>
+    <sprites name="puppet">
+      <sprite>sprites\spr_body</sprite>
+      <sprite>sprites\spr_head</sprite>
+      <sprite>sprites\spr_talking_mouth</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bkg_1</background>
