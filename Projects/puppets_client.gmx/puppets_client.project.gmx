@@ -19,6 +19,7 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bkg_1</background>
+    <background>background\bkg_gameRoom</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
