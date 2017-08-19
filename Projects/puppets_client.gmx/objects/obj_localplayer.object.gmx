@@ -68,8 +68,10 @@ network_send_packet(obj_controller.socket, global.buffer, buffer_tell(global.buf
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_colour(c_green);
-draw_circle(x, y, 15, true);
+            <string>//draw_set_colour(c_green);
+//draw_circle(x, y, 15, true);
+
+draw_sprite(spr_body,0,x,y-150);
 </string>
           </argument>
         </arguments>
