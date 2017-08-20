@@ -231,7 +231,7 @@
     <option_audioGroupCount>1</option_audioGroupCount>
     <option_author></option_author>
     <option_backimage>nil</option_backimage>
-    <option_borderless>True</option_borderless>
+    <option_borderless>False</option_borderless>
     <option_changed>false</option_changed>
     <option_changeresolution>false</option_changeresolution>
     <option_closeesc>true</option_closeesc>
@@ -246,7 +246,7 @@
     <option_freeze>false</option_freeze>
     <option_frequency>0</option_frequency>
     <option_frontimage>nil</option_frontimage>
-    <option_fullscreen>True</option_fullscreen>
+    <option_fullscreen>False</option_fullscreen>
     <option_gameguid>{F2526ACC-921C-439C-A4F4-56DE22BC0024}</option_gameguid>
     <option_gameid>355129752</option_gameid>
     <option_haptic_effects>false</option_haptic_effects>
