@@ -152,7 +152,7 @@
     <option_androidfire_orient_portrait_flipped>true</option_androidfire_orient_portrait_flipped>
     <option_androidfire_package_company>companyname</option_androidfire_package_company>
     <option_androidfire_package_domain>com</option_androidfire_package_domain>
-    <option_androidfire_package_product>Studio_Networking__Server</option_androidfire_package_product>
+    <option_androidfire_package_product>Studio_Networking_-_Server</option_androidfire_package_product>
     <option_androidfire_permission_flags>8</option_androidfire_permission_flags>
     <option_androidfire_portrait_splash_png>Configs\Default\amazonfire\portrait_splash.png</option_androidfire_portrait_splash_png>
     <option_androidfire_push_enable>false</option_androidfire_push_enable>
@@ -216,7 +216,7 @@
     <option_androidtv_moga>false</option_androidtv_moga>
     <option_androidtv_package_company>companyname</option_androidtv_package_company>
     <option_androidtv_package_domain>com</option_androidtv_package_domain>
-    <option_androidtv_package_product>Studio_Networking__Server</option_androidtv_package_product>
+    <option_androidtv_package_product>Studio_Networking_-_Server</option_androidtv_package_product>
     <option_androidtv_permission_flags>8</option_androidtv_permission_flags>
     <option_androidtv_push_enable>false</option_androidtv_push_enable>
     <option_androidtv_push_id></option_androidtv_push_id>

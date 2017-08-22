@@ -92,6 +92,10 @@ switch(msgId)
         var pId = buffer_read(buffer, buffer_u32);
         var xx = buffer_read(buffer, buffer_f32);
         var yy = buffer_read(buffer, buffer_f32);
+        var spriteNumber = buffer_read(buffer, buffer_u8);
+        var headNumber = buffer_read(buffer, buffer_u8);
+        var imageIndex = buffer_read(buffer, buffer_u8);
+        var d = buffer_read(buffer, buffer_u8);
         
         with (obj_remoteplayer)
         {
@@ -99,6 +103,80 @@ switch(msgId)
             {
                 x = xx;
                 y = yy;
+                
+                //decode the sprite number
+                switch (spriteNumber)
+                {
+                    case 1:
+                     //   image_index = 0;
+                    break;
+                    
+                    case 2:
+                    //    image_index = 1;
+                    break;
+                    
+                    case 3:
+                    //    image_index = 2;
+                    break;
+                    
+                    case 4:
+                    //    image_index = 3;
+                    break;
+                    
+                    //case 5:
+                     //   image_index = 0;
+                    //break;
+                }
+                
+                switch (headNumber)
+                {
+                    case 1:
+                        obj_head.image_index = 0;
+                    break;
+                    
+                    case 2:
+                        obj_head.image_index = 1;
+                    break;
+                    
+                    case 3:
+                        obj_head.image_index = 2;
+                    break;
+                    
+                    case 4:
+                        obj_head.image_index = 3;
+                    break;
+                    
+                }
+                image_index = imageIndex;
+                
+                //decode our direction
+                switch (d)
+                {
+                    case 1:
+                        image_xscale = -1;
+                    break;
+                    
+                    case 2:
+                        image_xscale = 1;
+                    break;
+                }
+            }
+        }
+    break;
+    
+    case 8:
+        var pId = buffer_read(buffer, buffer_u32);
+        var text = buffer_read(buffer, buffer_string);
+        
+        //find the owner of the message
+        with (obj_remoteplayer)
+        {
+            if (remotePlayerId == pId)
+            {
+                //create the chat object to follow this remote player
+                var chat = instance_create(x, y, obj_chat);
+                chat.text = text;
+                chat.owner = id;
             }
         }
     break;

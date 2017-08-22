@@ -194,8 +194,8 @@ ds_list_destroy(global.players);
             <string>draw_set_colour(c_white);
 draw_set_font(fnt_1);
 draw_set_valign(fa_middle);
-draw_text(5, 155, "Server status: " + string(server &gt;= 0));
-draw_text(5, 195, "Total clients: " + string(ds_list_size(global.players)));
+draw_text(5, 5, "Server status: " + string(server &gt;= 0));
+draw_text(5, 20, "Total clients: " + string(ds_list_size(global.players)));
 
 var xx = room_width/2;
 var yy = 150;

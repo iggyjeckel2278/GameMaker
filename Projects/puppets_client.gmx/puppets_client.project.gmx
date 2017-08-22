@@ -11,10 +11,21 @@
     <sprite>sprites\spr_btn_login</sprite>
     <sprite>sprites\spr_btn_join</sprite>
     <sprite>sprites\spr_btn_exit</sprite>
-    <sprites name="puppet">
-      <sprite>sprites\spr_body</sprite>
+    <sprites name="player">
+      <sprite>sprites\spr_man_duck</sprite>
+      <sprite>sprites\spr_man_jump</sprite>
+      <sprite>sprites\spr_man_run</sprite>
+      <sprite>sprites\spr_man_stand</sprite>
+      <sprite>sprites\spr_man_walk</sprite>
+    </sprites>
+    <sprite>sprites\spr_block</sprite>
+    <sprites name="puppets">
       <sprite>sprites\spr_head</sprite>
+      <sprite>sprites\spr_mouth</sprite>
       <sprite>sprites\spr_talking_mouth</sprite>
+      <sprites name="body">
+        <sprite>sprites\spr_body</sprite>
+      </sprites>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -25,9 +36,19 @@
   <scripts name="scripts">
     <script>scripts\scr_handleIncomingPackets.gml</script>
     <script>scripts\scr_showNotification.gml</script>
+    <scripts name="platform mechanics">
+      <script>scripts\scr_detectKey.gml</script>
+      <script>scripts\scr_jumpCheck.gml</script>
+      <script>scripts\scr_rightCheck.gml</script>
+      <script>scripts\scr_leftCheck.gml</script>
+      <script>scripts\scr_standCheck.gml</script>
+      <script>scripts\scr_setSprite.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_main</font>
+    <font>fonts\fnt_small</font>
+    <font>fonts\fnt_chat</font>
   </fonts>
   <objects name="objects">
     <objects name="menus">
@@ -37,8 +58,8 @@
       </objects>
       <objects name="common">
         <object>objects\obj_textbox_parent</object>
-        <object>objects\obj_textbox_username</object>
         <object>objects\obj_textbox_password1</object>
+        <object>objects\obj_textbox_username</object>
       </objects>
       <objects name="login">
         <object>objects\obj_btn_login</object>
@@ -52,6 +73,9 @@
     <object>objects\obj_message</object>
     <object>objects\obj_remoteplayer</object>
     <object>objects\obj_localplayer</object>
+    <object>objects\obj_block</object>
+    <object>objects\obj_chat</object>
+    <object>objects\obj_head</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_boot</room>
