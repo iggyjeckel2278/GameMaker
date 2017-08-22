@@ -32,7 +32,40 @@ isConnected = network_connect(socket, ip, port);
 global.buffer = buffer_create(1024, buffer_fixed, 1);
 latency = 0;
 
+global.typing = false;
+maxWidth = 300;
+blink = false;
+text = "";
+
 scr_showNotification("Client initialized!");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>blink = !blink;
+
+if (global.typing)
+{
+    alarm[0] = room_speed * 1;
+}
 </string>
           </argument>
         </arguments>
@@ -142,6 +175,108 @@ draw_set_halign(fa_left);
 draw_set_font(fnt_main);
 draw_set_colour(c_white);
 draw_text(5, 15, "Latency: " + string(latency));
+
+if (room == rm_gameWorld)
+{
+    draw_set_halign(fa_right);
+    draw_set_font(fnt_chat);
+    
+    if (global.typing)
+    {
+        if (!blink)
+        {
+            draw_text(920, 320, "You: " + text);
+        }
+        else
+        {
+            draw_text(920, 320, "You: " + text + "|");
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (room == rm_gameWorld)
+{
+    if (global.typing)
+    {
+        if (text != "")
+        {
+            //send our message
+            buffer_seek(global.buffer, buffer_seek_start, 0);
+            buffer_write(global.buffer, buffer_u8, 8);
+            buffer_write(global.buffer, buffer_u32, global.playerId);
+            buffer_write(global.buffer, buffer_string, text);
+            network_send_packet(socket, global.buffer, buffer_tell(global.buffer));
+            
+            global.typing = false;
+            
+            var chat = instance_create(x, y, obj_chat);
+            chat.text = text;
+            chat.owner = obj_localplayer.id;
+            
+            text = "";
+        }
+    }
+    else
+    {
+        keyboard_string = text;
+        global.typing = true;
+        alarm[0] = room_speed * 1;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (global.typing)
+{
+    if (string_width(keyboard_string) &lt; maxWidth)
+    {
+        text = keyboard_string;
+    }
+    else
+    {
+        keyboard_string = text;
+    }
+}
 </string>
           </argument>
         </arguments>
