@@ -10,6 +10,7 @@
     <sprite>sprites\spr_mouth</sprite>
     <sprite>sprites\spr_talking_mouth</sprite>
     <sprite>sprites\spr_body</sprite>
+    <sprite>sprites\spr_hair</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
